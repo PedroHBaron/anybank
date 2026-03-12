@@ -1,0 +1,24 @@
+<main class="form-wrapper">
+    <form class="form" (ngSubmit)="aoSubmeter()" ngNativeValidate>
+        <h2 class="titulo">Nova transação</h2>
+        <div class="campos">
+            <label class="campo-grupo">
+                transação
+                <div class="select-wrapper">
+                    <select [(ngModel)]="tipoTransacao" name="tipo-transacao" required class="campo select-tipo-transacao">
+                        <option value="" selected disabled>Selecione o tipo de transação</option>
+                        @for (tipo of tipoTransacaoEnum | keyvalue; track tipo.key) {
+                            <option [value]="tipo.value">{{tipo.value}}</option>
+                        }
+                    </select>
+                </div>
+            </label>
+            <label class="campo-grupo">
+                <div class="input-wrapper">
+                    <input [(ngModel)]="valorTransacao" type="number" name="valor" min="0.01" step="0.01" required placeholder="00,00" class="campo input-valor-transacao">
+                </div>
+            </label>
+            <button class="botao-confirmar-transacao">Confirmar trasação</button>
+        </div>
+    </form>
+</main>

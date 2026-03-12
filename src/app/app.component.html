@@ -1,1 +1,7 @@
-<h1>Ola Pedro :)</h1>
+<div class="app">
+  <div class="banner-form-wrapper">
+    <app-banner [saldo]="saldo()"></app-banner>
+    <app-form-nova-trasacao (trasacaoCriada)="processarTransacao($event)"></app-form-nova-trasacao>
+  </div>
+  <app-extrato [transacoes]="transacoes()" class="extrato"></app-extrato>
+</div>
